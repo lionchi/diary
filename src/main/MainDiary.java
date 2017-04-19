@@ -21,6 +21,7 @@ import java.util.List;
 public class MainDiary extends Application {
 
     private Stage primaryStage;
+    private  String s;
 
     public static void main(String[] args) throws SQLException {
 
