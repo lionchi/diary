@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="821.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ControlPanelTeacher.ControlPanelTeacherDoConroller">
+   <children>
+      <AnchorPane fx:id="anchorPane" layoutX="-2.0" layoutY="-5.0" prefHeight="565.0" prefWidth="320.0">
+         <children>
+            <ImageView fx:id="imageView1" fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageView2" fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="72.0" layoutY="32.0" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Вы вошли как: Учитель" />
+            <ImageView fx:id="imageView3" fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="493.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="label1" layoutX="66.0" layoutY="380.0" onMouseClicked="#label1clickmouse" onMouseExited="#label1mouseexited" onMouseMoved="#label1mousemoved" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Изменить пароль">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label fx:id="label2" layoutX="69.0" layoutY="438.0" onMouseClicked="#label2clickmouse" onMouseExited="#label2mouseexited" onMouseMoved="#label2mousemoved" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Справка">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label fx:id="label3" layoutX="69.0" layoutY="499.0" onMouseClicked="#label3clickmouse" onMouseExited="#label3mouseexited" onMouseMoved="#label3mousemoved" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Выход">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <ChoiceBox fx:id="Class" layoutX="71.0" layoutY="123.0" prefHeight="35.0" prefWidth="178.0" />
+            <Label layoutX="141.0" layoutY="102.0" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Класс" />
+            <ChoiceBox fx:id="subject" layoutX="71.0" layoutY="189.0" prefHeight="35.0" prefWidth="178.0" />
+            <Label layoutX="130.0" layoutY="168.0" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Предмет" />
+            <Button layoutX="108.0" layoutY="250.0" mnemonicParsing="false" onAction="#buttonselection" stylesheets="@../Avtorization/MyCss.css" text="Выбрать" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="471.0" layoutY="269.0" stylesheets="@../Avtorization/MyCss.css" text="Выберите класс и предмет" />
+   </children>
+</AnchorPane>

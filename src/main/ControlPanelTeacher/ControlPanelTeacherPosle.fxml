@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="821.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ControlPanelTeacher.ControlPanelTeacherPosleController">
+   <children>
+      <AnchorPane fx:id="anchorPane" layoutX="-2.0" layoutY="-5.0" prefHeight="565.0" prefWidth="320.0">
+         <children>
+            <ImageView fx:id="imageView2" fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageView3" fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="446.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="80.0" layoutY="24.0" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Вы вошли как: Учитель" />
+            <ImageView fx:id="imageView4" fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="507.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="label2" layoutX="64.0" layoutY="394.0" onMouseClicked="#label2clickmouse" onMouseExited="#label2mouseexited" onMouseMoved="#label2mousemoved" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Изменить пароль">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label fx:id="label3" layoutX="71.0" layoutY="452.0" onMouseClicked="#label3clickmouse" onMouseExited="#label3mouseexited" onMouseMoved="#label3mousemoved" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Справка">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label fx:id="label4" layoutX="68.0" layoutY="513.0" onMouseClicked="#label4clickmouse" onMouseExited="#label4mouseexited" onMouseMoved="#label4mousemoved" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Выход">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <ChoiceBox fx:id="Class" layoutX="71.0" layoutY="85.0" prefHeight="35.0" prefWidth="178.0" />
+            <Label layoutX="141.0" layoutY="64.0" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Класс" />
+            <ChoiceBox fx:id="subject" layoutX="71.0" layoutY="151.0" prefHeight="35.0" prefWidth="178.0" />
+            <Label layoutX="130.0" layoutY="130.0" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Предмет" />
+            <Button layoutX="100.0" layoutY="266.0" mnemonicParsing="false" onAction="#buttonselection" stylesheets="@../Avtorization/MyCss.css" text="Выбрать" />
+            <ImageView fx:id="imageView1" fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="label1" layoutX="64.0" layoutY="336.0" onMouseClicked="#label1clickmouse" onMouseExited="#label1mouseexited" onMouseMoved="#label1mousemoved" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Добавить Оценки/Посещаемость" />
+            <ComboBox layoutX="72.0" layoutY="218.0" prefHeight="35.0" prefWidth="178.0" />
+            <Label layoutX="115.0" layoutY="197.0" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Показать за:" />
+         </children>
+      </AnchorPane>
+      <TableView layoutX="318.0" layoutY="-2.0" prefHeight="560.0" prefWidth="505.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

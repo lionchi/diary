@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="821.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ControlPanel.ControlPanelController">
+   <children>
+    <AnchorPane fx:id="anchorPane1" layoutX="-2.0" layoutY="-5.0" prefHeight="565.0" prefWidth="320.0">
+         <children>
+            <ImageView fx:id="imageView1" fitHeight="32.0" fitWidth="32.0" layoutX="36.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageView2" fitHeight="32.0" fitWidth="32.0" layoutX="36.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="53.0" layoutY="31.0" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Вы вошли как: Администратор" />
+            <ImageView fx:id="imageView3" fitHeight="32.0" fitWidth="32.0" layoutX="36.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageView4" fitHeight="32.0" fitWidth="32.0" layoutX="36.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageView5" fitHeight="32.0" fitWidth="32.0" layoutX="36.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageView6" fitHeight="32.0" fitWidth="32.0" layoutX="36.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageView7" fitHeight="32.0" fitWidth="32.0" layoutX="36.0" layoutY="439.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="label1" layoutX="98.0" layoutY="100.0" onMouseClicked="#label1clickmouse" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Регистрация пользователя">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+            <Label fx:id="label2" layoutX="97.0" layoutY="157.0" onMouseClicked="#label2clickmouse" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Удаление пользователя">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+            <Label fx:id="label3" layoutX="96.0" layoutY="216.0" onMouseClicked="#label3clickmouse" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Формирование класса">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+            <Label fx:id="label4" layoutX="98.0" layoutY="272.0" onMouseClicked="#label4clickmouse" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Редактирование класса">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+            <Label fx:id="label5" layoutX="99.0" layoutY="328.0" onMouseClicked="#label5clickmouse" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Отчет по успеваемости">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+            <Label fx:id="label6" layoutX="96.0" layoutY="384.0" onMouseClicked="#label6clickmouse" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Отчет по посещаемости">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+            <Label fx:id="label7" layoutX="99.0" layoutY="445.0" onMouseClicked="#label7clickmouse" style="-fx-text-fill: white;" stylesheets="@../Avtorization/MyCss.css" text="Выход">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

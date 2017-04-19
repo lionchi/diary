@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="600.0" stylesheets="@MyCss.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Avtorization.AvtorizationPageController">
+   <children>
+      <Button layoutX="257.0" layoutY="248.0" mnemonicParsing="false" onAction="#buttonAutorization" stylesheets="@MyCss.css" text="Войти">
+         <padding>
+            <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+         </padding>
+      </Button>
+      <Label layoutX="246.0" layoutY="68.0" styleClass="label-header" stylesheets="@MyCss.css" text="ВХОД">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </Label>
+      <Label layoutX="184.0" layoutY="19.0" stylesheets="@MyCss.css" text="Школьный электронный дневник" />
+      <Separator layoutX="28.0" layoutY="40.0" prefHeight="17.0" prefWidth="545.0">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <effect>
+            <ColorAdjust contrast="-0.82" />
+         </effect>
+      </Separator>
+      <Label fx:id="passrecovery" layoutX="169.0" layoutY="339.0" onMouseClicked="#labelclickmouse" onMouseExited="#labelmouseexited" onMouseMoved="#labelmousemoved" stylesheets="@MyCss.css" text="Забыли пароль? Восстановить пароль" />
+      <Label layoutX="116.0" layoutY="195.0" text="Пароль" AnchorPane.bottomAnchor="170.0" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="431.0" AnchorPane.topAnchor="195.0" />
+      <Label layoutX="116.0" layoutY="153.0" prefHeight="21.0" prefWidth="49.0" text="Логин" AnchorPane.bottomAnchor="212.0" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="435.0" AnchorPane.topAnchor="153.0" />
+      <TextField fx:id="FIO" layoutX="175.0" layoutY="151.0" prefWidth="250.0" />
+      <PasswordField fx:id="pass" layoutX="175.0" layoutY="193.0" prefHeight="24.0" prefWidth="250.0" />
+   </children>
+</AnchorPane>

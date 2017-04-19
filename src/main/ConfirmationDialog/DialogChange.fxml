@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ConfirmationDialog.DialogChangeController">
+   <children>
+      <Label layoutX="41.0" layoutY="32.0" stylesheets="@../Avtorization/MyCss.css" text="Вы действительно хотите внести изменения ?" />
+      <Button layoutX="83.0" layoutY="86.0" mnemonicParsing="false" onAction="#buttonDa" prefHeight="33.0" prefWidth="73.0" stylesheets="@../Avtorization/MyCss.css" text="Да" />
+      <Button layoutX="251.0" layoutY="86.0" mnemonicParsing="false" onAction="#buttonNet" stylesheets="@../Avtorization/MyCss.css" text="Нет" />
+   </children>
+</AnchorPane>
