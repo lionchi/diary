@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.paint.Color;
 
@@ -34,6 +35,9 @@ public class ReportWindowUController {
 
     private DBWorker dbWorker = new DBWorker();
     private Statement statement = dbWorker.getConnection().createStatement();
+
+    @FXML
+    private Button report_button;
 
     @FXML
     private ChoiceBox<String> Time = new ChoiceBox<String>();
@@ -69,7 +73,7 @@ public class ReportWindowUController {
     }
 
     @FXML
-    private void lineChart() throws IOException {
+    private void BarChart() throws IOException {
         subs.addAll(subjects);
         xAxis.setCategories(subs);
         xAxis.setLabel("Предмет");
@@ -79,23 +83,17 @@ public class ReportWindowUController {
         xAxis.setGapStartAndEnd(true);
 
         XYChart.Series series = new XYChart.Series<>();
-        XYChart.Series series1 = new XYChart.Series<>();
-        XYChart.Series series2 = new XYChart.Series<>();
-        // populating the series with data
-        /*for(int i = 0; i<subs.size();i++) {
+        for(int i = 0; i<subs.size();i++) {
             series.getData().add(new XYChart.Data<>(subs.get(i), report_marks.get(i)));
-        }*/
-        series.getData().add(new XYChart.Data<>(subs.get(0), report_marks.get(0)));
-        series1.getData().add(new XYChart.Data<>(subs.get(1), report_marks.get(1)));
-        series2.getData().add(new XYChart.Data<>(subs.get(2), report_marks.get(2)));
-        chart.getData().addAll(series,series1,series2);
+        }
+        chart.getData().addAll(series);
     }
 
     private void count(List<String> marks)
     {
         for(int i=0; i<marks.size(); i++)
         {
-             report+=Double.parseDouble(marks.get(i));
+            report+=Double.parseDouble(marks.get(i));
         }
         report = report/marks.size();
         report_marks.add(report);
@@ -140,12 +138,13 @@ public class ReportWindowUController {
             }
         }
         if(isNull==true) {
-            lineChart();
+            BarChart();
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
             alert1.setTitle("Отчет");
             alert1.setHeaderText("Отчет");
             alert1.setContentText("Отчет успешно создан!");
             alert1.showAndWait();
+            report_button.setDisable(true);
         }
 
     }
