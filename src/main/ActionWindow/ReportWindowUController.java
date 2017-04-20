@@ -114,7 +114,7 @@ public class ReportWindowUController {
     }
 
     @FXML
-    private void Action() throws SQLException, IOException {;
+    private void Action() throws SQLException, IOException {
         List<String> new_tabs = new ArrayList<>();
         for (int i=0; i<tabsList.size(); i++) {
             if(tabsList.get(i).contains(Class.getValue())&&tabsList.get(i).split("_").length<4)
