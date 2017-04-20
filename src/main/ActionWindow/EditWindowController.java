@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
@@ -45,6 +46,18 @@ public class EditWindowController
 
     private String new_class;
     private String old_class;
+
+    public void setClassTeacher(Button classTeacher) {
+        ClassTeacher = classTeacher;
+    }
+
+    @FXML
+    private Button ClassTeacher;
+    @FXML
+    private Button BringPupil;
+    @FXML
+    private Button BringClass;
+
 
     @FXML
     private void initialize() throws SQLException {
@@ -117,7 +130,6 @@ public class EditWindowController
         Scene scene = new Scene(page);
         dialogStage.setScene(scene);
 
-
         DialogChangeController controller = loader.getController();
         controller.setDialogStage(dialogStage);
         controller.setCclass(Class.getValue());
@@ -128,6 +140,7 @@ public class EditWindowController
 
         // Отображаем диалоговое окно и ждём, пока пользователь его не закроет
         dialogStage.showAndWait();
+        ClassTeacher.setDisable(true);
     }
     @FXML
     private void buttonBringStudent() throws SQLException {
@@ -152,6 +165,7 @@ public class EditWindowController
             alert1.setHeaderText("Перевод ученика");
             alert1.setContentText("Перевод ученика прошел успешно");
             alert1.showAndWait();
+            BringPupil.setDisable(true);
         }
         else{
             Alert alert1 = new Alert(Alert.AlertType.ERROR);
@@ -180,6 +194,7 @@ public class EditWindowController
 
         DialogTranslationController controller = loader.getController();
         controller.setDialogStage(dialogStage);
+        BringClass.setDisable(true);
 
         // Отображаем диалоговое окно и ждём, пока пользователь его не закроет
         dialogStage.showAndWait();
