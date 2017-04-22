@@ -17,6 +17,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import main.ConfirmationDialog.DialogChangeController;
 import main.ConfirmationDialog.DialogDeleteController;
+import main.ConfirmationDialog.DialogDropClassController;
 import main.ConfirmationDialog.DialogTranslationController;
 import main.MainDiary;
 
@@ -43,6 +44,8 @@ public class EditWindowController
     private ChoiceBox<String> Class = new ChoiceBox<String>();
     @FXML
     private ChoiceBox<String> NewClass = new ChoiceBox<String>();
+    @FXML
+    private ChoiceBox<String> Class_Delete = new ChoiceBox<String>();
 
     private String new_class;
     private String old_class;
@@ -57,6 +60,8 @@ public class EditWindowController
     private Button BringPupil;
     @FXML
     private Button BringClass;
+    @FXML
+    private Button DeleteClass;
 
 
     @FXML
@@ -66,11 +71,12 @@ public class EditWindowController
         Teacher.setItems(teachersList);
         Class.setItems(classes);
         NewClass.setItems(classes);
+        Class_Delete.setItems(classes);
     }
 
     private void fill() throws SQLException {
-        DBWorker dbWorker = new DBWorker();
 
+        DBWorker dbWorker = new DBWorker();
         Statement statement = dbWorker.getConnection().createStatement();
 
         ResultSet setPupils = statement.executeQuery("select * from список_учеников");
@@ -194,10 +200,34 @@ public class EditWindowController
 
         DialogTranslationController controller = loader.getController();
         controller.setDialogStage(dialogStage);
+        // Отображаем диалоговое окно и ждём, пока пользователь его не закроет
+        dialogStage.showAndWait();
         BringClass.setDisable(true);
+    }
+    @FXML
+    private void DropClass() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(MainDiary.class.getResource("ConfirmationDialog/DialogDropClass.fxml"));
 
+        AnchorPane page = loader.load();
+
+        // Создаём диалоговое окно Stage.
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Подтверждение удаления");
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.getIcons().add(new Image("file:resources/images/iconP.png"));
+
+        Scene scene = new Scene(page);
+        dialogStage.setScene(scene);
+
+
+        DialogDropClassController controller = loader.getController();
+        controller.setDialogStage(dialogStage);
+        controller.setClasS(Class_Delete.getValue());
+        DeleteClass.setDisable(true);
         // Отображаем диалоговое окно и ждём, пока пользователь его не закроет
         dialogStage.showAndWait();
     }
+
 
 }

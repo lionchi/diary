@@ -13,6 +13,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.paint.Color;
 
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,8 +34,8 @@ public class ReportWindowPController {
     private List<String> percent = new ArrayList<>();
     private ObservableList<Integer> report_percent = FXCollections.observableArrayList();
     private ObservableList<String> subs = FXCollections.observableArrayList();
-
     private HashSet<String> subjects = new HashSet<>();
+
     private int days = 31;
     private int count = 0;
     private int size_class = 0;
@@ -61,6 +66,7 @@ public class ReportWindowPController {
         fill();
         Time.setItems(timeList);
         Class.setItems(classes);
+        xAxis.setCategories(subs);
     }
 
     private void fill() throws SQLException {
@@ -82,7 +88,6 @@ public class ReportWindowPController {
     @FXML
     private void BarChart() throws IOException {
         subs.addAll(subjects);
-        xAxis.setCategories(subs);
         xAxis.setLabel("Предмет");
         xAxis.setTickLabelFill(Color.BROWN);
         xAxis.setTickLabelGap(10);
@@ -130,6 +135,41 @@ public class ReportWindowPController {
         if(!Time.getValue().equals("Год")){
 
             count(percent);
+        }
+    }
+    @FXML
+    private void Write() throws IOException {
+        if( report_button.isDisable()==true) {
+            String s = "\t" + "Отчет за " + Time.getValue() + "\r\n\r\n" + "Предмет: " + "\t\t" + "Процент посещаемости" + "\r\n";
+            for (int i = 0; i < subs.size(); i++) {
+                if (subs.get(i).length() < 10)
+                    s += " ";
+                s += subs.get(i) + "\t\t\t" + report_percent.get(i) + "\r\n";
+            }
+
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("*.TXT", "*.*");
+            JFileChooser fc = new JFileChooser();
+            fc.setFileFilter(filter);
+            if (fc.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+                try (FileWriter fs = new FileWriter(fc.getSelectedFile())) {
+                    fs.write(s);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+            alert1.setTitle("Отчет");
+            alert1.setHeaderText("Отчет");
+            alert1.setContentText("Отчет успешно сохранен!");
+            alert1.showAndWait();
+        }
+        else
+        {
+            Alert alert1 = new Alert(Alert.AlertType.ERROR);
+            alert1.setTitle("Отчет");
+            alert1.setHeaderText("Отчет");
+            alert1.setContentText("Перед сохранением необходимо создать график!");
+            alert1.showAndWait();
         }
     }
 

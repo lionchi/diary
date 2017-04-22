@@ -10,6 +10,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.paint.Color;
 
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -114,7 +118,43 @@ public class ReportWindowUController {
     }
 
     @FXML
-    private void Action() throws SQLException, IOException {
+    private void Write() throws IOException {
+        if( report_button.isDisable()==true) {
+            String s = "\t" + "Отчет за " + Time.getValue() + "\r\n\r\n" + "Предмет: " + "\t\t" + "Средняя успеваемость" + "\r\n";
+            for (int i = 0; i < subs.size(); i++) {
+                if (subs.get(i).length() < 10)
+                    s += " ";
+                s += subs.get(i) + "\t\t\t" + report_marks.get(i) + "\r\n";
+            }
+
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("*.TXT", "*.*");
+            JFileChooser fc = new JFileChooser();
+            fc.setFileFilter(filter);
+            if (fc.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+                try (FileWriter fs = new FileWriter(fc.getSelectedFile())) {
+                    fs.write(s);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+            alert1.setTitle("Отчет");
+            alert1.setHeaderText("Отчет");
+            alert1.setContentText("Отчет успешно сохранен!");
+            alert1.showAndWait();
+        }
+        else
+        {
+            Alert alert1 = new Alert(Alert.AlertType.ERROR);
+            alert1.setTitle("Отчет");
+            alert1.setHeaderText("Отчет");
+            alert1.setContentText("Перед сохранением необходимо создать график!");
+            alert1.showAndWait();
+        }
+    }
+
+    @FXML
+    private void Action() throws SQLException, IOException {;
         List<String> new_tabs = new ArrayList<>();
         for (int i=0; i<tabsList.size(); i++) {
             if(tabsList.get(i).contains(Class.getValue())&&tabsList.get(i).split("_").length<4)
